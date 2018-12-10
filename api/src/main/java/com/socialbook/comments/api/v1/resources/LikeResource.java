@@ -36,31 +36,31 @@ public class LikeResource {
     }
 
     @GET
-    @Path("/albums/{albumId}")
+    @Path("/{imageId}")
     @CollectRequests
-    public Response getAlbumsLikes(@PathParam("albumId") String albumId) {
-        List<Like> likes = likesBean.getAlbumLikes(albumId);
+    public Response getAlbumsLikes(@PathParam("imageId") String imageId) {
+        List<Like> likes = likesBean.getImageLikes(imageId);
         if (likes != null) return Response.ok(likes).build();
         return Response.status(Response.Status.NOT_FOUND).build();
     }
 
     @PUT
-    @Path("/albums/{albumId}")
+    @Path("/{imageId}")
     @CollectRequests
-    public Response likeAlbum(@PathParam("albumId") String albumId) {
+    public Response likeAlbum(@PathParam("imageId") String imageId) {
         Like like = new Like();
-        like.setAlbumId(albumId);
-        like.setLikeAmount(0);
+        like.setImage_id(imageId);
+        like.setLikeAmount(1);
         likesBean.createLike(like);
         return Response.status(Response.Status.CREATED).build();
     }
 
     @DELETE
-    @Path("/albums/{albumId}")
+    @Path("/{imageId}")
     @CollectRequests
-    public Response unlikeAlbum(@PathParam("albumId") String albumId) {
+    public Response unlikeAlbum(@PathParam("imageId") String imageId) {
         Like like = new Like();
-        like.setAlbumId(albumId);
+        like.setImage_id(imageId);
         likesBean.deleteLike(like);
         return Response.status(Response.Status.CREATED).build();
     }

@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 @Entity(name = "like_table")
 @NamedQueries(value = {@NamedQuery(name = "Like.getAll", query = "select c from like_table c"),
-        @NamedQuery(name = "Like.getAlbums", query = "select c from like_table c where c.albumId = :album_id")})
+        @NamedQuery(name = "Like.getAlbums", query = "select c from like_table c where c.image_id = :image_id")})
 public class Like {
 
     @Id
@@ -12,14 +12,11 @@ public class Like {
     @Column(name = "like_id")
     private Integer likeId;
 
-    @Column(name = "album_id")
-    private String albumId;
+    @Column(name = "image_id")
+    private String image_id;
 
     @Column(name = "like_amount")
     private Integer likeAmount;
-
-    @Column(name = "user_id")
-    private String user_id;
 
     public Integer getLikeId() {
         return likeId;
@@ -27,14 +24,6 @@ public class Like {
 
     public void setLikeId(Integer likeId) {
         this.likeId = likeId;
-    }
-
-    public String getAlbumId() {
-        return albumId;
-    }
-
-    public void setAlbumId(String albumId) {
-        this.albumId = albumId;
     }
 
     public Integer getLikeAmount() {
@@ -45,11 +34,11 @@ public class Like {
         this.likeAmount = likeAmount;
     }
 
-    public String getUser_id() {
-        return user_id;
+    public String getImage_id() {
+        return image_id;
     }
 
-    public void setUser_id(String user_id) {
-        this.user_id = user_id;
+    public void setImage_id(String image_id) {
+        this.image_id = image_id;
     }
 }

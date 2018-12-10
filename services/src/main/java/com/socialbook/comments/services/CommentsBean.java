@@ -21,8 +21,8 @@ public class CommentsBean {
         return entityManager.createNamedQuery("Comm.getAll").getResultList();
     }
 
-    public List<Comment> getAlbumComments(String albumId) {
-        return entityManager.createNamedQuery("Comm.getAlbums").setParameter("album_id", albumId).getResultList();
+    public List<Comment> getImageComments(String imageId) {
+        return entityManager.createNamedQuery("Comm.getAlbums").setParameter("image_id", imageId).getResultList();
     }
 
     @Transactional
