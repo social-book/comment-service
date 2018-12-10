@@ -1,5 +1,6 @@
 package com.socialbook.comments.api.v1.resources;
 
+import com.kumuluz.ee.cors.annotations.CrossOrigin;
 import com.socialbook.comments.entities.Comment;
 import com.socialbook.comments.services.CommentsBean;
 import com.socialbook.comments.services.interceptors.CollectRequests;
@@ -17,6 +18,7 @@ import java.util.List;
 @Path("/comments")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
+@CrossOrigin
 public class CommentResource {
 
     @Context

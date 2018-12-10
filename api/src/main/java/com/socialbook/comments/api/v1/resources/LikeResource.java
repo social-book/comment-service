@@ -1,5 +1,6 @@
 package com.socialbook.comments.api.v1.resources;
 
+import com.kumuluz.ee.cors.annotations.CrossOrigin;
 import com.socialbook.comments.entities.Like;
 import com.socialbook.comments.services.LikesBean;
 import com.socialbook.comments.services.interceptors.CollectRequests;
@@ -17,6 +18,7 @@ import java.util.List;
 @Path("/likes")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
+@CrossOrigin
 public class LikeResource {
 
     @Context
