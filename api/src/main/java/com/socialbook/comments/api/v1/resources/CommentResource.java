@@ -36,10 +36,10 @@ public class CommentResource {
     }
 
     @GET
-    @Path("/albums/{albumId}")
+    @Path("/{imageId}")
     @CollectRequests
-    public Response getAlbumComments(@PathParam("albumId") String albumId) {
-        List<Comment> comments = commentsBean.getAlbumComments(albumId);
+    public Response getAlbumComments(@PathParam("imageId") String imageId) {
+        List<Comment> comments = commentsBean.getImageComments(imageId);
         if (comments != null) return Response.ok(comments).build();
         return Response.status(Response.Status.NOT_FOUND).build();
     }

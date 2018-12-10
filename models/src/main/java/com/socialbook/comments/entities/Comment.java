@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 @Entity(name = "comment_table")
 @NamedQueries(value = {@NamedQuery(name = "Comm.getAll", query = "select c from comment_table c"),
-                        @NamedQuery(name = "Comm.getAlbums", query = "select c from comment_table c where c.album_id = :album_id")})
+                        @NamedQuery(name = "Comm.getAlbums", query = "select c from comment_table c where c.image_id = :image_id")})
 public class Comment {
 
     @Id
@@ -12,8 +12,8 @@ public class Comment {
     @Column(name = "comment_id")
     private Integer comment_id;
 
-    @Column(name = "album_id")
-    private String album_id;
+    @Column(name = "image_id")
+    private String image_id;
 
     @Column(name = "comment_content")
     private String comment_content;
@@ -27,14 +27,6 @@ public class Comment {
 
     public void setComment_id(Integer comment_id) {
         this.comment_id = comment_id;
-    }
-
-    public String getAlbum_id() {
-        return album_id;
-    }
-
-    public void setAlbum_id(String album_id) {
-        this.album_id = album_id;
     }
 
     public String getComment_content() {
@@ -51,5 +43,13 @@ public class Comment {
 
     public void setUser_id(String user_id) {
         this.user_id = user_id;
+    }
+
+    public String getImage_id() {
+        return image_id;
+    }
+
+    public void setImage_id(String image_id) {
+        this.image_id = image_id;
     }
 }
