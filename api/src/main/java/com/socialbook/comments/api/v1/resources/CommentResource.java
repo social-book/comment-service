@@ -32,7 +32,13 @@ public class CommentResource {
     public Response getAll() {
         List<Comment> comments = commentsBean.getComments();
         if (comments != null) return Response.ok(comments).build();
-        return Response.status(Response.Status.NOT_FOUND).build();
+        return Response.status(Response.Status.NOT_FOUND).header("Access-Control-Allow-Origin", "*")
+                .header("Access-Control-Allow-Credentials", "true")
+                .header("Access-Control-Allow-Headers",
+                        "origin, content-type, accept, authorization, body")
+                .header("Access-Control-Allow-Methods",
+                        "GET, POST, PUT, DELETE, OPTIONS, HEAD")
+                .entity("").build();
     }
 
     @GET
@@ -41,20 +47,38 @@ public class CommentResource {
     public Response getAlbumComments(@PathParam("imageId") String imageId) {
         List<Comment> comments = commentsBean.getImageComments(imageId);
         if (comments != null) return Response.ok(comments).build();
-        return Response.status(Response.Status.NOT_FOUND).build();
+        return Response.status(Response.Status.NOT_FOUND).header("Access-Control-Allow-Origin", "*")
+                .header("Access-Control-Allow-Credentials", "true")
+                .header("Access-Control-Allow-Headers",
+                        "origin, content-type, accept, authorization, body")
+                .header("Access-Control-Allow-Methods",
+                        "GET, POST, PUT, DELETE, OPTIONS, HEAD")
+                .entity("").build();
     }
 
     @POST
     @CollectRequests
     public Response commentAlbum(Comment comment) {
         commentsBean.createComment(comment);
-        return Response.status(Response.Status.CREATED).build();
+        return Response.status(Response.Status.CREATED).header("Access-Control-Allow-Origin", "*")
+                .header("Access-Control-Allow-Credentials", "true")
+                .header("Access-Control-Allow-Headers",
+                        "origin, content-type, accept, authorization, body")
+                .header("Access-Control-Allow-Methods",
+                        "GET, POST, PUT, DELETE, OPTIONS, HEAD")
+                .entity("").build();
     }
 
     @DELETE
     @CollectRequests
     public Response deleteComment(Comment comment) {
         commentsBean.deleteComment(comment);
-        return Response.status(Response.Status.GONE).build();
+        return Response.status(Response.Status.GONE).header("Access-Control-Allow-Origin", "*")
+                .header("Access-Control-Allow-Credentials", "true")
+                .header("Access-Control-Allow-Headers",
+                        "origin, content-type, accept, authorization, body")
+                .header("Access-Control-Allow-Methods",
+                        "GET, POST, PUT, DELETE, OPTIONS, HEAD")
+                .entity("").build();
     }
 }

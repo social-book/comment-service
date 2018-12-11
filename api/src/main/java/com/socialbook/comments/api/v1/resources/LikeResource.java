@@ -52,7 +52,13 @@ public class LikeResource {
         like.setImage_id(imageId);
         like.setLikeAmount(1);
         likesBean.createLike(like);
-        return Response.status(Response.Status.CREATED).build();
+        return Response.status(Response.Status.CREATED).header("Access-Control-Allow-Origin", "*")
+                .header("Access-Control-Allow-Credentials", "true")
+                .header("Access-Control-Allow-Headers",
+                        "origin, content-type, accept, authorization, body")
+                .header("Access-Control-Allow-Methods",
+                        "GET, POST, PUT, DELETE, OPTIONS, HEAD")
+                .entity("").build();
     }
 
     @DELETE
