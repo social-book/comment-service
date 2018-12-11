@@ -50,7 +50,7 @@ public class LikeResource {
     public Response likeAlbum(@PathParam("imageId") String imageId) {
         Like like = new Like();
         like.setImage_id(imageId);
-        like.setLikeAmount(1);
+        like.setLikeAmount("1");
         likesBean.createLike(like);
         return Response.status(Response.Status.CREATED).header("Access-Control-Allow-Origin", "*")
                 .header("Access-Control-Allow-Credentials", "true")
@@ -59,6 +59,13 @@ public class LikeResource {
                 .header("Access-Control-Allow-Methods",
                         "GET, POST, PUT, DELETE, OPTIONS, HEAD")
                 .entity("").build();
+    }
+
+    @GET
+    @Path("/{imageId}/like")
+    @CollectRequests
+    public Response likeAlbumGet(@PathParam("imageId") String imageId) {
+        return likeAlbum(imageId);
     }
 
     @DELETE

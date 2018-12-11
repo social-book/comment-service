@@ -69,6 +69,19 @@ public class CommentResource {
                 .entity("").build();
     }
 
+    @GET
+    @Path("/comment/{userId}/{imageId}/{content}")
+    @CollectRequests
+    public Response commentImageGet(@PathParam("userId") String userId,
+                                    @PathParam("imageId") String imageId,
+                                    @PathParam("content") String content) {
+        Comment comment = new Comment();
+        comment.setComment_content(content);
+        comment.setImage_id(imageId);
+        comment.setUser_id(userId);
+        return commentAlbum(comment);
+    }
+
     @DELETE
     @CollectRequests
     public Response deleteComment(Comment comment) {

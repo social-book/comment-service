@@ -16,7 +16,7 @@ public class Like {
     private String image_id;
 
     @Column(name = "like_amount")
-    private Integer likeAmount;
+    private String likeAmount;
 
     public Integer getLikeId() {
         return likeId;
@@ -26,11 +26,11 @@ public class Like {
         this.likeId = likeId;
     }
 
-    public Integer getLikeAmount() {
+    public String getLikeAmount() {
         return likeAmount;
     }
 
-    public void setLikeAmount(Integer likeAmount) {
+    public void setLikeAmount(String likeAmount) {
         this.likeAmount = likeAmount;
     }
 

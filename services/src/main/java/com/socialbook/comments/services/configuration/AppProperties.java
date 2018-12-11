@@ -11,11 +11,22 @@ public class AppProperties {
     @ConfigValue(value = "statistic-service.enabled", watch = true)
     private boolean statisticServiceEnabled;
 
+    @ConfigValue(value = "external-api.enabled", watch = true)
+    private boolean externalApiEnabled;
+
     public boolean isStatisticServiceEnabled() {
         return statisticServiceEnabled;
     }
 
     public void setStatisticServiceEnabled(boolean statisticServiceEnabled) {
         this.statisticServiceEnabled = statisticServiceEnabled;
+    }
+
+    public boolean isExternalApiEnabled() {
+        return externalApiEnabled;
+    }
+
+    public void setExternalApiEnabled(boolean externalApiEnabled) {
+        this.externalApiEnabled = externalApiEnabled;
     }
 }

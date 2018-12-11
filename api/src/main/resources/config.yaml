@@ -22,3 +22,5 @@ kumuluzee:
 app-properties:
   statistic-service:
     enabled: false
+  external-api:
+    enabled: true
